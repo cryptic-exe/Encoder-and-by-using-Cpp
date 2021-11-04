@@ -1,11 +1,14 @@
-#include <iostream>
-#include <stdlib.h>
-#include <time.h>
-#include <string>
-#include <fstream>
+#include<bits/stdc++.h>
 
 using namespace std;
-void decode(int key[],int encoded[],int size);
+void decode(int key[],int encoded[],int size){
+  int decoded[size];
+  cout<<"\nDecoded:\n";
+  for(int i=0;i<size;i++){
+    decoded[i]=encoded[i]-key[i];
+    cout<<char(decoded[i]);
+  }
+}
 
 using namespace std;
 int main() {
@@ -34,22 +37,10 @@ int main() {
    outfile<<key[i]<<" ";
    outfile<<endl;
    outfile.close();
-
-
-   // ifstream infile;
-   // infile.open("key.txt");
-   // infile>>key;
-   // cout<<key<<endl;
-   // decode(key,encoded,limit);
+   
+   decode(key,encoded,limit);
 
    return 0;
 }
 
-void decode (int key[],int encoded[], int size){
-  int decoded[size];
-  cout<<"\nDecoded"<<endl;
-  for(int i=0;i<size;i++){
-    decoded[i]=encoded[i]-key[i];
-    cout<<char(decoded[i]);
-   }
-  }
+
